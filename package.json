@@ -1,0 +1,37 @@
+{
+  "name": "@civ-clone/base-game-end",
+  "version": "0.1.0",
+  "description": "The shared parts of how a game ends: conquest and its bonus, the last year and its warning, and what a civilization coming back inherits.",
+  "repository": "git@github.com:civ-clone/base-game-end.git",
+  "keywords": [
+    "typescript",
+    "civilization"
+  ],
+  "author": "dom111 <dom111@users.noreply.github.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "npm run ts:compile && npm run prettier:format",
+    "prettier:check": "prettier --config .prettierrc --check '**/*.ts'",
+    "prettier:format": "prettier --config .prettierrc '**/*.ts' --write",
+    "test": "ts-mocha ./tests/*.test.ts",
+    "ts:compile": "tsc --build tsconfig.json"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.0.0",
+    "@types/mocha": "^10.0.0",
+    "@types/node": "^16.0.0",
+    "chai": "^4.0.0",
+    "mocha": "^10.0.0",
+    "prettier": "^2.8.8",
+    "ts-mocha": "^10.0.0",
+    "typescript": "^4.0.0"
+  },
+  "dependencies": {
+    "@civ-clone/base-civilization-barbarian": "^0.1.1",
+    "@civ-clone/core-game-year": "^0.1.4",
+    "@civ-clone/core-player": "^0.1.10",
+    "@civ-clone/core-player-world": "^0.1.14",
+    "@civ-clone/core-turn-based-game": "^0.1.10"
+  }
+}
