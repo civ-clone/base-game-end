@@ -1,6 +1,6 @@
 {
   "name": "@civ-clone/base-game-end",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The shared parts of how a game ends: conquest and its bonus, the last year and its warning, and what a civilization coming back inherits.",
   "repository": "git@github.com:civ-clone/base-game-end.git",
   "keywords": [
