@@ -18,8 +18,8 @@ numbers and registration:
   the rules whose ids are `heldOff` switched off while the player joins (a ruleset's starting advances, say), and back
   on after if they were on. A civilization coming back and a civil war's rebels join this way.
 - `lib/respawn`: a destroyed civilization coming back.
-  - `respawns(player, ruleRegistry, fallback?)`: whether it does. Every `Respawns` rule (`Rules/Respawns`) must agree;
-    with none registered, `fallback()` answers (true if left out). A ruleset registers its gate as a `Respawns` rule,
+  - `respawns(player, ruleRegistry, fallback?)`: whether it does. Every `Respawns` rule (`Rules/Respawns`) that answers must
+    agree; when none answers (none registered, or none applies), `fallback()` answers (true if left out). A ruleset registers its gate as a `Respawns` rule,
     such as a last turn by difficulty level (`byLevel`), or keeps its own number and passes it as `fallback`.
   - `respawn(game, defeated, { site, heldOff, isHuman, advances, inherits })`: for the ruleset's `Defeated` rule to
     call. `site()` first (`null`: nothing happens); then the player joins with `heldOff` held off; then each advance

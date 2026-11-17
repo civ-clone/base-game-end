@@ -29,21 +29,22 @@ export type RespawnOptions = {
 };
 
 /**
- * Whether a destroyed civilization comes back: every `Respawns` rule agrees, or, with none registered, `fallback`. A
- * ruleset may register its gate as a rule, or keep it as a number of its own and pass it here.
+ * Whether a destroyed civilization comes back: every `Respawns` rule that answers agrees, or, when none answers (none is
+ * registered, or none applies to this player), `fallback`. A ruleset may register its gate as a rule, or keep it as a
+ * number of its own and pass it here.
  */
 export const respawns = (
   player: Player,
   ruleRegistry: RuleRegistry,
   fallback: () => boolean = (): boolean => true
 ): boolean => {
-  if (ruleRegistry.get(Respawns).length === 0) {
+  const answers = ruleRegistry.process(Respawns, player);
+
+  if (answers.length === 0) {
     return fallback();
   }
 
-  return ruleRegistry
-    .process(Respawns, player)
-    .every((comesBack: boolean): boolean => comesBack);
+  return answers.every((comesBack: boolean): boolean => comesBack);
 };
 
 /**

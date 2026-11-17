@@ -128,6 +128,21 @@ describe('respawns', (): void => {
 
     expect(respawns(player, game.rules)).false;
   });
+
+  it('asks the fallback when no registered Respawns rule answers', async (): Promise<void> => {
+    const { game } = await setUp(),
+      player = new Player(game.rules);
+
+    game.rules.register(
+      new Respawns(
+        new Criterion((): boolean => false),
+        new Effect((): boolean => true)
+      )
+    );
+
+    expect(respawns(player, game.rules, () => false)).false;
+    expect(respawns(player, game.rules, () => true)).true;
+  });
 });
 
 describe('respawn', (): void => {

@@ -21,8 +21,9 @@ export type RespawnOptions = {
   inherits: (AdvanceType: typeof Advance, player: Player) => boolean;
 };
 /**
- * Whether a destroyed civilization comes back: every `Respawns` rule agrees, or, with none registered, `fallback`. A
- * ruleset may register its gate as a rule, or keep it as a number of its own and pass it here.
+ * Whether a destroyed civilization comes back: every `Respawns` rule that answers agrees, or, when none answers (none is
+ * registered, or none applies to this player), `fallback`. A ruleset may register its gate as a rule, or keep it as a
+ * number of its own and pass it here.
  */
 export declare const respawns: (
   player: Player,
