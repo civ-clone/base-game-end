@@ -23,9 +23,10 @@ numbers and registration:
     such as a last turn by difficulty level (`byLevel`), or keeps its own number and passes it as `fallback`.
   - `respawn(game, defeated, { site, heldOff, isHuman, advances, inherits })`: for the ruleset's `Defeated` rule to
     call. `site()` first (`null`: nothing happens); then the player joins with `heldOff` held off; then each advance
-    it may inherit (`advances(others, player)`, by default `inheritedAdvances`) is added where `inherits` says; then
-    the `Spawn` rules give it its units at the site; then `player:respawned` is emitted with the new player and the
-    destroyed one. The site search, the units and the chances stay the ruleset's.
+    it may inherit (`advances(others, player)`, by default `inheritedAdvances`) is added where `inherits` says, as an
+    advance it starts with rather than one gained in play; then the `Spawn` rules give it its units at the site; then
+    `player:respawned` is emitted with the new player and the destroyed one. The site search, the units and the
+    chances stay the ruleset's.
   - **A game setting to switch it off:** put the id of the `Defeated` rule that calls `respawn` in a `RuleSet` (on by
     default), which New Game offers; switching the set off switches the rule off. Switching a `Respawns` rule off
     would let civilizations come back, not stop them.

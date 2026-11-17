@@ -36,7 +36,8 @@ export declare const respawns: (
  *
  * 1. `site()`: with nowhere to come back, nothing happens and it returns `null`;
  * 2. the player joins (`addPlayerHoldingOff`), with the `heldOff` rules off;
- * 3. each advance it may inherit (`advances`) is added where `inherits` says so;
+ * 3. each advance it may inherit (`advances`) is added where `inherits` says so, as one it starts with
+ *    (`PlayerResearch#startingAdvances()`), not one gained in play (civ-clone/web-renderer#973);
  * 4. the `Spawn` rules give it its units at the site, as the ruleset's are;
  * 5. `player:respawned` is emitted, with the new player and the one destroyed.
  *

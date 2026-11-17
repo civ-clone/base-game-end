@@ -196,6 +196,13 @@ describe('respawn', (): void => {
         .complete()
         .map((advance) => advance.sourceClass())
     ).eql([Pottery]);
+    // What it inherits it starts with, rather than gains in play (civ-clone/web-renderer#973).
+    expect(
+      game.playerResearch
+        .getByPlayer(player)
+        .startingAdvances()
+        .map((advance) => advance.sourceClass())
+    ).eql([Pottery]);
     expect(log).eql(['spawn 3,4', 'respawned, new player']);
   });
 
